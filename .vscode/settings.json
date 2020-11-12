@@ -1,0 +1,40 @@
+{
+  "workbench.editor.enablePreview": false,
+  "editor.lineNumbers": "relative",
+  "zenMode.centerLayout": false,
+  "workbench.statusBar.visible": true,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideTabs": false,
+  "zenMode.hideLineNumbers": false,
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    120
+  ],
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "python.pythonPath": ".venv/bin/python",
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Args": [
+    "--max-line-length",
+    "120",
+    "--experimental"
+  ],
+  "python.linting.flake8Args": [
+    "--max-line-length=120"
+  ],
+  "autoDocstring.docstringFormat": "numpy",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-k>": false
+  }
+}
