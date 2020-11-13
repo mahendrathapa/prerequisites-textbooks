@@ -37,7 +37,7 @@ def main():
     concept_map = generate_concept_map(data.wikipedia_concepts)
     concept_sub_chapter_map = generate_concept_subchapter(data.wikipedia_concepts, data.sub_chapters)
 
-    metropolis_hasting(concept_map, concept_sub_chapter_map, epoch=500)
+    metropolis_hasting(concept_map, concept_sub_chapter_map, epochs=1000)
 
     print("\nConcept Map\n")
     pp.pprint(concept_map)

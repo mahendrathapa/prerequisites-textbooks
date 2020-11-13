@@ -27,7 +27,7 @@ def cal_key_concept_extraction(concepts, sub_chapters, concept_sub_chapter_map, 
     return total
 
 
-def cal_pre_requisite_relationship(concepts, concept_map, alpha_3=1, alpha_4=1):
+def cal_pre_requisite_relationship(concepts, concept_map, concept_sub_chapter_map, alpha_3=1, alpha_4=1):
 
     first_term = 0
     second_term = 0
@@ -40,7 +40,7 @@ def cal_pre_requisite_relationship(concepts, concept_map, alpha_3=1, alpha_4=1):
     for i in concepts:
         for j in concepts:
             if i != j:
-                second_term += concept_map[i][j] * (calculate_complexity_level(i) - calculate_complexity_level(j))
+                second_term += concept_map[i][j] * calculate_complexity_level(i, j, concept_sub_chapter_map)
 
     total = alpha_3 * first_term + alpha_4 * second_term
 
@@ -85,12 +85,12 @@ def cal_R_regularizer(concepts, concept_map):
     return result
 
 
-def objective(concept_map, concept_sub_chapter_map, beta_1=1, beta_2=1):
+def objective(concept_map, concept_sub_chapter_map, beta_1=0, beta_2=0):
     concepts = data.wikipedia_concepts
     sub_chapters = data.sub_chapters
 
     P_1 = cal_key_concept_extraction(concepts, sub_chapters, concept_sub_chapter_map)
-    P_2 = cal_pre_requisite_relationship(concepts, concept_map)
+    P_2 = cal_pre_requisite_relationship(concepts, concept_map, concept_sub_chapter_map)
     P_3 = cal_joint_modeling(concepts, sub_chapters, concept_map, concept_sub_chapter_map)
     R_1 = cal_CS_regularizer(concepts, sub_chapters, concept_sub_chapter_map)
     R_2 = cal_R_regularizer(concepts, concept_map)
@@ -118,12 +118,12 @@ def take_decision(original_val, original_objective_val, alter_val, alter_objecti
     return final_val, obj_val
 
 
-def metropolis_hasting(concept_map, concept_sub_chapter_map, beta=1, epoch=10):
+def metropolis_hasting(concept_map, concept_sub_chapter_map, beta=1, epochs=10):
 
     concepts = data.wikipedia_concepts
     sub_chapters = data.sub_chapters
 
-    for i in range(epoch):
+    for epoch in range(epochs):
 
         total_cs = 0
 
@@ -166,4 +166,4 @@ def metropolis_hasting(concept_map, concept_sub_chapter_map, beta=1, epoch=10):
                     total_r += obj_val
                     concept_map[i][j] = final_val
 
-        print(f"Epoch: {i} Objective value CS: {total_cs} Objective value R: {total_r}")
+        print(f"Epoch: {epoch} Objective value CS: {total_cs} Objective value R: {total_r}")
