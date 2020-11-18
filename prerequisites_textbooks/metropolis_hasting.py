@@ -4,7 +4,8 @@ from prerequisites_textbooks import data
 from prerequisites_textbooks.utils import concept_concept_similarity, \
     concept_sub_chapter_similarity, calculate_complexity_level, indicator_function, alter_value
 
-from prerequisites_textbooks.config import ALPHA_1, ALPHA_2, ALPHA_3, ALPHA_4, ALPHA_5, BETA_1, BETA_2, BETA, EPOCHS
+from prerequisites_textbooks.config import ALPHA_1, ALPHA_2, ALPHA_3, ALPHA_4, ALPHA_5, BETA_1, BETA_2, BETA, EPOCHS, \
+    PRINT_EPOCH
 
 
 def cal_key_concept_extraction(concepts, sub_chapters, concept_sub_chapter_map):
@@ -167,5 +168,6 @@ def metropolis_hasting(concept_map, concept_sub_chapter_map):
                     total_r += obj_val
                     concept_map[i][j] = final_val
 
-        if epoch % 1000 == 0:
-            print(f"Epoch: {epoch} Objective value CS: {total_cs} Objective value R: {total_r}")
+        if epoch % PRINT_EPOCH == 0:
+            print(f"Epoch: {epoch} Objective value Concept Subchapter Map: {total_cs} " +
+                  f"Objective value Concept Concept Map: {total_r}")
