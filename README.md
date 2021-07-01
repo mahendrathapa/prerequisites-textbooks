@@ -1,6 +1,6 @@
 # Prerequisites Textbook
 
-#### Demo implementation of Using prerequisites to extract concept maps fromtextbooks" (Wang et al., 2016) paper
+#### Demo implementation of Using prerequisites to extract concept maps from textbooks" (Wang et al., 2016) paper
 
 
 ## Dataset
