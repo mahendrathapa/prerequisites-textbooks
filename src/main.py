@@ -2,8 +2,8 @@ import pprint
 
 import numpy as np
 
-from prerequisites_textbooks import data
-from prerequisites_textbooks.metropolis_hasting import metropolis_hasting
+from src import data
+from src.metropolis_hasting import metropolis_hasting
 
 
 np.random.seed(0)

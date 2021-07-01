@@ -1,10 +1,10 @@
 import numpy as np
 
-from prerequisites_textbooks import data
-from prerequisites_textbooks.utils import concept_concept_similarity, \
+from src import data
+from src.utils import concept_concept_similarity, \
     concept_sub_chapter_similarity, calculate_complexity_level, indicator_function, alter_value
 
-from prerequisites_textbooks.config import ALPHA_1, ALPHA_2, ALPHA_3, ALPHA_4, ALPHA_5, BETA_1, BETA_2, BETA, EPOCHS, \
+from src.config import ALPHA_1, ALPHA_2, ALPHA_3, ALPHA_4, ALPHA_5, BETA_1, BETA_2, BETA, EPOCHS, \
     PRINT_EPOCH
 
 

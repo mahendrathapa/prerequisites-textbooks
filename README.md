@@ -1,3 +1,2 @@
-# concept_map
+# Prerequisites Textbooks
 
-This repo contains implementation related to concept map
