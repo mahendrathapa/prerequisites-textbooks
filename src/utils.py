@@ -1,7 +1,7 @@
 import itertools
 
-from prerequisites_textbooks.data import sub_chapters_toc
-from prerequisites_textbooks.data import sub_chapters
+from src.data import sub_chapters_toc
+from src.data import sub_chapters
 
 
 def concept_concept_similarity(concept_1, concept_2):
